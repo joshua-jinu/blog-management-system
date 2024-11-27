@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import {connectDB} from './config/db.js'
+import blogRouter from './routes/blog.route.js'
 
 dotenv.config();
 
@@ -17,7 +18,9 @@ app.get('/blog', (req, res)=>{
     res.send("Blog page");
 })
 
-app.listen(PORT, ()=>{
+app.use('/api/blogs', blogRouter);
+
+app.listen(8000, ()=>{
     connectDB();
     console.log(`Server is running on https://localhost:${PORT}`)
 })
