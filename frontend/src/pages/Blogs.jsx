@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import BlogForm from './BlogForm';
 
 function Blogs() {
     const [blogs, setBlogs] = useState([]);
@@ -21,6 +22,7 @@ function Blogs() {
     
     return (
         <div>
+            <BlogForm/>
             {!error &&
                 blogs.map((blog)=>{
                     return (
