@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import {connectDB} from './config/db.js'
 import blogRouter from './routes/blog.route.js'
 
@@ -7,6 +8,11 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+// Enable CORS for frontend requests
+app.use(cors({
+    origin: 'http://localhost:5173', // frontend URL
+}))
 
 app.use(express.json());
 
