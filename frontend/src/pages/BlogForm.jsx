@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 
 function BlogForm() {
 
     const form = useForm();
     const {register, control, handleSubmit, formState} = form;
     const {errors} = formState;
+    const navigate = useNavigate();
 
 
     const onSubmit = async (data) =>{
@@ -15,6 +17,7 @@ function BlogForm() {
         try{
             const returned = await axios.post('/api/blogs', data);
             console.log(returned);
+            navigate("/");
         }catch(err){
             console.log("Error:",err);
         }

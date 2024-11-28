@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import BlogForm from './BlogForm';
 
 function Blogs() {
     const [blogs, setBlogs] = useState([]);
@@ -21,12 +20,11 @@ function Blogs() {
     }, [])
     
     return (
-        <div>
-            <BlogForm/>
+        <div className='flex flex-col justify-center items-center'>
             {!error &&
                 blogs.map((blog)=>{
                     return (
-                        <div key={blog.id} className='bg-slate-200 m-4 p-4 rounded-xl w-full flex justify-center items-center flex-col'>
+                        <div key={blog.id} className='bg-slate-200 m-4 p-4 rounded-xl w-[50%] flex justify-center items-center flex-col'>
                             <div>
                                 <b>
                                     <h1>{blog.title}</h1>
